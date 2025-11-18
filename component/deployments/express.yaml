@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: express-container
-          image: secondthreadamit/my-first-repo:2
+          image: secondthreadamit/my-first-repo:3
           ports:
             - containerPort: 3000
           resources:
