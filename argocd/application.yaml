@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-app
+  namespace: argocd   # Argo CD's namespace
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/amit2111github/.git'
+    targetRevision: HEAD
+    path: component
+
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: my-namespace
+
+  syncPolicy:
+    automated:         # enable auto-sync
+      prune: true      # delete resources removed from git
+      selfHeal: true   # fix drift automatically
+    syncOptions:
+      - CreateNamespace=true   # create namespace if missing

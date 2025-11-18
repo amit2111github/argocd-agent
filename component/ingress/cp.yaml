@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: express-app-ingress1
+  annotations:
+    kubernetes.io/ingress.class: "nginx"  # tells K8s to use NGINX ingress controller
+    nginx.ingress.kubernetes.io/rewrite-target: /  # optional if you need path rewriting
+spec:
+  rules:
+    - host: amitkumar1.com             # replace with your domain
+      http:
+        paths:
+          - path: /some
+            pathType: Prefix
+            backend:
+              service:
+                name: express-app-service
+                port:
+                  number: 80
