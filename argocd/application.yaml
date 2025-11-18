@@ -7,16 +7,16 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/amit2111github/.git'
-    targetRevision: HEAD
+    targetRevision: main
     path: component
 
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: my-namespace
+    namespace: express-app
 
   syncPolicy:
-    automated:         # enable auto-sync
-      prune: true      # delete resources removed from git
-      selfHeal: true   # fix drift automatically
+    automated:         # enable auto-sync will make a pull every 3 mins
+      prune: true      # by default it dont delete components if not present in repo , prune=true will force it to delete resources which removed from git, 
+      selfHeal: true   # overrid manual applied changes eg . kubectl apply -f abc.yaml
     syncOptions:
       - CreateNamespace=true   # create namespace if missing
