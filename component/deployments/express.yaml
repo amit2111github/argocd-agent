@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: express-app-deployment
+  name: express-app
   labels:
     app: express-app
 spec:
