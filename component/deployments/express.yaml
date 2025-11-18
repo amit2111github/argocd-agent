@@ -38,6 +38,4 @@ spec:
               port: 3000
             initialDelaySeconds: 10
             periodSeconds: 10
-        - name: log-sidecar
-          image: busybox
-          command: ["sh", "-c", "while true; do echo 'Hello from sidecar at $(date)'; sleep 5; done"]
+            
