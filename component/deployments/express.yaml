@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: express-app
+  name: express-app-Deployment
   labels:
     app: express-app
 spec:
@@ -38,4 +38,3 @@ spec:
               port: 3000
             initialDelaySeconds: 10
             periodSeconds: 10
-            
